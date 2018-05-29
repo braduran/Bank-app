@@ -1,0 +1,41 @@
+<nav>
+  <div class="nav-wrapper light-blue darken-4">
+    <a class="brand-logo"><i class="material-icons">code</i> Bancolombia FWTX</a>
+    <a #nav href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <div class="chip blue lighten-5 black-text channel">{{nameChannel}}</div>
+    <!-- Lista que se mostrara al reducir la pantalla como una aplicación móvil -->
+    <ul id="mobile-demo" class="side-nav">
+      <!-- Information -->
+      <!--<li *ngFor="let info of information" class="tab">
+        <input class="with-gap" type="radio" name="ifmt" id="{{info}}" (click)="onClickInfo(info)" [checked]="info" />
+        <label for="{{info}}">{{info}}</label>
+      </li>-->
+      <!--LogOut-->
+      <li class="tab"><a href="#modal2"><i class="material-icons">power_settings_new</i></a></li>
+    </ul>
+    
+    <!-- Lista que se mostrara en la web -->
+    <ul id="nav-mobile" class="right hide-on-med-and-down ulHeaderMenu">
+      <!-- Information -->
+      <li *ngFor="let info of information" class="rbHeader">
+        <input class="with-gap" type="radio" name="ifmt" id="{{info}}" (click)="onClickInfo(info)" [checked]="info" />
+        <label for="{{info}}">{{info}}</label>
+      </li>
+      <!--LogOut-->
+      <li><a href="#modal2"><i class="material-icons">power_settings_new</i></a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Modal Structure -->
+<div id="modal2" class="modal myModal" #div>
+  <div class="modal-content">
+    <h5>Confirmación de salida</h5>
+    <p>¿Esta seguro que desea salir?</p>
+  </div>
+  <div class="modal-footer myFooterModal">
+    <a (click)="onClickLogOut()" class="modal-action modal-close waves-effect waves-green btn-flat">Confirmar</a>
+    <a class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+  </div>
+</div>
+
