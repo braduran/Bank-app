@@ -1,0 +1,42 @@
+<div class="container center-align">
+    <h5>Registro de usuario</h5>
+    <div class="red-text darken-4" *ngIf="alert">{{message}}</div>
+      <div class="row">
+        <div class="col s12">
+          Cédula:
+          <div class="input-field inline">
+            <input type="number" placeholder="Ingrese cédula" value="0" [(ngModel)]="id">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12">
+          Nombre:
+          <div class="input-field inline">
+            <input type="text" placeholder="Ingrese nombre" [(ngModel)]="nombre">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12">
+          Apellido:
+          <div class="input-field inline">
+            <input type="text" placeholder="Ingrese apellido" [(ngModel)]="apellido">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s10">
+          Fecha de nacimiento:    
+          <div class="input-field inline">
+            <input type="date" placeholder="Elija una fecha" [(ngModel)]="fechaNac">
+          </div>
+        </div>
+      </div>
+      <button [disabled]="dsbBtn" class="btn info" (click)="onClickRegister()">Registrar
+          <i class="material-icons right">send</i>
+      </button>
+</div>

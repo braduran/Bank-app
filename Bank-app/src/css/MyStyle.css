@@ -1,0 +1,24 @@
+.loading_m{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 999;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding-top: 20%;
+  }
+  
+  .loading_m p{
+      text-align: center;
+      color: white;
+      margin-top: 0;
+      margin-bottom: 0;
+  }
+  
+  .progress_m{
+      width: 20%;
+      margin: 0 auto;
+      background-color: #01579b;
+  }

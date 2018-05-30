@@ -1,5 +1,13 @@
 <div class="row">
     <div class="col s6 offset-s3">
-      <Login (login)="onClickLogIn($event)"></Login>
+      <Register *ngIf="switch" (register)="onClickRegister($event)" [rndRegister]="rndRegister" [inpRegister]="inpRegister"></Register>
+      <Loan *ngIf="!switch" (loans)="onClickLoan($event)" [rndLoan]="rndLoan" [inpLoan]="inpLoan"></Loan>
     </div>
+</div>
+
+<div class="loading_m" [hidden]="loading">
+  <p>Cargando...</p>
+  <div class="progress progress_m">
+    <div class="indeterminate"></div>
+  </div>
 </div>

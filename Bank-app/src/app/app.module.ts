@@ -4,14 +4,14 @@ import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 
 import {App}  from './App';
-import {Login} from './login/Login';
-import {HeaderMenu}  from './header/HeaderMenu';
+import {register} from './register/register';
+import {loan} from './loan/loan';
 
 import {Service} from './services/Service';
 
 @NgModule({
   imports:      [ BrowserModule, HttpModule, FormsModule ],
-  declarations: [ App, Login, HeaderMenu],
+  declarations: [ App, register, loan],
   bootstrap:    [ App ],
   providers: 	[Service]
 })
