@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col s6 offset-s3">
-      <Register *ngIf="switch" (register)="onClickRegister($event)" [rndRegister]="rndRegister" [inpRegister]="inpRegister"></Register>
-      <Loan *ngIf="!switch" (loans)="onClickLoan($event)" [rndLoan]="rndLoan" [inpLoan]="inpLoan"></Loan>
+      <Register *ngIf="switch" (register)="onClickRegister($event)" (confirm)="onClickConfirmRegister()" [rndRegister]="rndRegister" [inpRegister]="inpRegister"></Register>
+      <Loan *ngIf="!switch" (loans)="onClickLoan($event)" (confirm)="onClickConfirmLoan()" [rndLoan]="rndLoan" [inpLoan]="inpLoan"></Loan>
     </div>
 </div>
 

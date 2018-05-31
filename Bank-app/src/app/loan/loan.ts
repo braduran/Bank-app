@@ -8,6 +8,7 @@ import { Component, DoCheck, Output, EventEmitter, Input, OnChanges} from '@angu
 export class loan implements DoCheck, OnChanges{
 
     @Output() loans = new EventEmitter();
+    @Output() confirm = new EventEmitter();
     @Input() inpLoan: any;
     @Input() rndLoan: any;
 
@@ -22,23 +23,34 @@ export class loan implements DoCheck, OnChanges{
     private alert: boolean;
     private outLoan: any;
 
+    private showMessage: boolean;
+
     constructor() {
         this.outLoan = {};
         this.dsbBtn = true;
         this.alert = false; 
-        this.message = "";      
+        this.message = "";  
+        this.showMessage = false;    
     }
 
     public ngOnChanges(){
-        this.message = this.inpLoan.message;
-        this.alert = this.inpLoan.alert;
-        setTimeout(()=>{
-            this.alert = false;
-        }, 8000);
+        if(this.inpLoan.showMessage){
+            this.message = this.inpLoan.message;
+            this.showMessage = this.inpLoan.showMessage;
+        }else{
+            this.showMessage = this.inpLoan.showMessage;
+            this.message = this.inpLoan.message;
+            this.alert = this.inpLoan.alert;
+            setTimeout(()=>{
+                this.alert = false;
+            }, 8000);
+              
+        }
+        
     }
 
     public ngDoCheck(){
-        if(this.nombreEmpresa == "" || this.nitEmpresa == 0 || this.salario == 0 || this.fechaIngreso == ''
+        if(this.nombreEmpresa == "" || this.nitEmpresa <= 0 || this.salario <= 0 || this.fechaIngreso == ''
         || this.nombreEmpresa == undefined || this.nitEmpresa == undefined || this.salario == undefined || this.fechaIngreso == undefined){
              this.dsbBtn = true;
         }else{
@@ -52,5 +64,10 @@ export class loan implements DoCheck, OnChanges{
         this.outLoan.salarioActual = this.salario;
         this.outLoan.fechaIngreso = this.fechaIngreso;
         this.loans.emit(this.outLoan);
+    }
+
+    public onClickConfirmLoan(){
+        this.showMessage = false;
+        this.confirm.emit();
     }
 }

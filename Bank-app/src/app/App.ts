@@ -1,8 +1,7 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import {RequestOptions, ResponseContentType} from '@angular/http';
 import {Service} from './services/Service';
 import {Constants} from './utils/Constants';
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
 @Component({
   selector: 'App',
@@ -54,7 +53,9 @@ export class App{
   private onSuccessRegister(data: any): void{
     var json = this.convertStringToJson(data._body);
     if(json.status == Constants.OK){
-      this.switch = false;
+      this.inpRegister.message = Constants.CLIENT_OK;
+      this.inpRegister.showMessage = true;
+      this.rndRegister = Math.random();
       this.loading = true;
     }else{
       this.showMessageRegister(json.message);
@@ -74,7 +75,9 @@ export class App{
   private onSuccessLoan(data: any): void{
     var json = this.convertStringToJson(data._body);
     if(json.status == Constants.OK){
-      this.switch = true;
+      this.inpLoan.message =json.message;
+      this.inpLoan.showMessage = true;
+      this.rndLoan = Math.random();
       this.loading = true;
     }else{
       this.showMessageLoan(json.message);
@@ -101,6 +104,18 @@ export class App{
     this.inpLoan.alert = true;
     this.rndLoan = Math.random();
     this.loading = true;
+  }
+
+  private onClickConfirmRegister(){
+    this.switch = false;
+  }
+
+  private onClickConfirmLoan(){
+    this.switch = true;
+    this.inpLoan.showMessage = false;
+    this.inpRegister.showMessage = false;
+    this.inpRegister.alert = false;
+    this.rndLoan = Math.random();
   }
 }
 

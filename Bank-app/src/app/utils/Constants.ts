@@ -4,4 +4,5 @@ export class Constants{
 	public static CONSULTAR_CLIENTE: string = "http://localhost:8080/consultarCliente";
 	public static INSERTAR_CLIENTE: string = "http://localhost:8080/insertarCliente";
 	public static INSERTAR_PRESTAMO: string = "http://localhost:8080/insertarPrestamo";
+	public static CLIENT_OK: string = "Cliente registrado exitosamente";
 }

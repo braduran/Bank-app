@@ -40,3 +40,15 @@
           <i class="material-icons right">send</i>
       </button>
 </div>
+
+<!-- Modal Structure -->
+<div class="center modal_m" id="modal" *ngIf="showMessage">
+  <div class="modal_content_m">
+    <div class="modal-content">
+      <h5>{{message}}<i class="material-icons">check</i></h5>
+    </div>
+    <div class="modal-footer">
+      <a (click)="onClickConfirmRegister()" class="modal-action modal-close waves-effect waves-green btn-flat btn-modal_m">Confirmar</a>
+    </div>
+  </div>
+</div>
